@@ -4,4 +4,9 @@
     <Project Path="Src/PolarionWebApi90/PolarionWebApi90.csproj" Id="16c51e6f-41a0-4e3e-8343-07ea8143e24b" />
     <Project Path="Src/PolarionWebApiShare/PolarionWebApiShare.shproj" Id="8123ab6f-958b-4a17-8a48-4f29686afd46" />
   </Folder>
+  <Folder Name="/Test/">
+    <Project Path="Test/PolarionWebApiUnitTest80/PolarionWebApiUnitTest80.csproj" Id="3fef6374-5288-49f7-aea2-30c8c1d51355" />
+    <Project Path="Test/PolarionWebApiUnitTest90/PolarionWebApiUnitTest90.csproj" Id="6dee05f2-757a-4d82-8ef8-0698cecdbcb1" />
+    <Project Path="Test/PolarionWebApiUnitTestShare/PolarionWebApiUnitTestShare.shproj" Id="a2384b1e-3532-4654-84f8-283dc3e3a96d" />
+  </Folder>
 </Solution>

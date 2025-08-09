@@ -3,15 +3,14 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>8123ab6f-958b-4a17-8a48-4f29686afd46</SharedGUID>
+    <SharedGUID>a2384b1e-3532-4654-84f8-283dc3e3a96d</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>PolarionWebApi</Import_RootNamespace>
+    <Import_RootNamespace>PolarionWebApiUnitTest</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Polarion.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\SourceGenerationContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\PolarionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PolarionBaseUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PolarionUsersUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
   </ItemGroup>
 </Project>
