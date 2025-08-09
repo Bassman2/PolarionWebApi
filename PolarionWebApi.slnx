@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Src/">
+    <Project Path="Src/PolarionWebApi80/PolarionWebApi80.csproj" Id="7e083e1e-27c8-4aa4-8ff5-4efec793ddb6" />
+    <Project Path="Src/PolarionWebApi90/PolarionWebApi90.csproj" Id="16c51e6f-41a0-4e3e-8343-07ea8143e24b" />
+    <Project Path="Src/PolarionWebApiShare/PolarionWebApiShare.shproj" Id="8123ab6f-958b-4a17-8a48-4f29686afd46" />
+  </Folder>
+</Solution>
