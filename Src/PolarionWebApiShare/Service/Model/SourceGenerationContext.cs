@@ -4,7 +4,7 @@
     JsonSerializerDefaults.Web,
     DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull)]
 
-[JsonSerializable(typeof(string))]
+[JsonSerializable(typeof(IEnumerable<ProjectModel>))]
 
 internal partial class SourceGenerationContext : JsonSerializerContext
 {

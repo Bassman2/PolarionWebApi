@@ -10,6 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)PolarionBaseUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PolarionCollectionsUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PolarionProjectsUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PolarionUsersUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
   </ItemGroup>

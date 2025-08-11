@@ -22,4 +22,30 @@ public sealed class Polarion : IDisposable
         }
         GC.SuppressFinalize(this);
     }
+
+    public async Task<IEnumerable<Project>?> GetProjectsAsync(CancellationToken cancellationToken = default)
+    {
+        WebServiceException.ThrowIfNullOrNotConnected(service);
+
+        var res = await service.GetProjectsAsync(cancellationToken);
+        return res.CastModel<Project>();
+    }
+
+    public async Task<Project?> GetProjectAsync(string projectId, CancellationToken cancellationToken = default)
+    {
+        WebServiceException.ThrowIfNullOrNotConnected(service);
+        ArgumentNullException.ThrowIfNullOrEmpty(projectId, nameof(projectId)); 
+
+        var res = await service.GetProjectAsync(projectId, cancellationToken);
+        return res.CastModel<Project>();
+    }
+
+    public async Task<Project?> GetCollectionsAsync(string projectId, CancellationToken cancellationToken = default)
+    {
+        WebServiceException.ThrowIfNullOrNotConnected(service);
+        ArgumentNullException.ThrowIfNullOrEmpty(projectId, nameof(projectId));
+
+        var res = await service.GetCollectionsAsync(projectId, cancellationToken);
+        return res.CastModel<Project>();
+    }
 }
