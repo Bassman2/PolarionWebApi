@@ -15,10 +15,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Polarion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\AttributesModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\DataModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\MetaModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\LinksModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\PlanModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ProjectModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ResponseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\SourceGenerationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\TestrunModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\PolarionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
   </ItemGroup>

@@ -28,7 +28,7 @@ public sealed class Polarion : IDisposable
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
         var res = await service.GetProjectsAsync(cancellationToken);
-        return res.CastModel<Project>();
+        return res?.Data.CastModel<Project>();
     }
 
     public async Task<Project?> GetProjectAsync(string projectId, CancellationToken cancellationToken = default)
@@ -37,7 +37,7 @@ public sealed class Polarion : IDisposable
         ArgumentNullException.ThrowIfNullOrEmpty(projectId, nameof(projectId)); 
 
         var res = await service.GetProjectAsync(projectId, cancellationToken);
-        return res.CastModel<Project>();
+        return res?.Data.CastModel<Project>();
     }
 
     public async Task<Project?> GetCollectionsAsync(string projectId, CancellationToken cancellationToken = default)

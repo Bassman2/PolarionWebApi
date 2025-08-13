@@ -1,4 +1,6 @@
-﻿namespace PolarionWebApi.Service;
+﻿using PolarionWebApi.Service.Model;
+
+namespace PolarionWebApi.Service;
 
 internal sealed class PolarionService(Uri host, IAuthenticator? authenticator, string appName) : JsonService(host, authenticator, appName, SourceGenerationContext.Default)
 {
@@ -32,27 +34,36 @@ internal sealed class PolarionService(Uri host, IAuthenticator? authenticator, s
     //    throw new WebServiceException(res, response.RequestMessage?.RequestUri, response.StatusCode, response.ReasonPhrase, memberName);
     //}
 
-    public async Task<IEnumerable<ProjectModel>?> GetProjectsAsync(CancellationToken cancellationToken)
+    public async Task<ResponseListModel?> GetProjectsAsync(CancellationToken cancellationToken)
     {
-        var res = await GetFromJsonAsync<IEnumerable<ProjectModel>>("rest/v1/projects", cancellationToken);
+        var res = await GetFromJsonAsync<ResponseListModel>("rest/v1/projects", cancellationToken);
         return res;
     }
 
-    public async Task<ProjectModel?> GetProjectAsync(string projectId, CancellationToken cancellationToken)
+    public async Task<ResponseItemModel?> GetProjectAsync(string projectId, CancellationToken cancellationToken)
     {
         string req = CombineUrl("rest/v1/projects/", projectId, 
             ("fields[categories]", "@all"),
             ("fields[collections]", "@basic"));
-        var res = await GetFromJsonAsync<ProjectModel>(req, cancellationToken);
+        var res = await GetFromJsonAsync<ResponseItemModel>(req, cancellationToken);
         return res;
     }
 
-    public async Task<ProjectModel?> GetCollectionsAsync(string projectId, CancellationToken cancellationToken)
+    public async Task<ResponseListModel?> GetCollectionsAsync(string projectId, CancellationToken cancellationToken)
     {
         string req = CombineUrl("rest/v1/projects/", projectId, "/collections",
             ("fields[categories]", "@all"),
             ("fields[collections]", "@basic"));
-        var res = await GetFromJsonAsync<ProjectModel>(req, cancellationToken);
+        var res = await GetFromJsonAsync<ResponseListModel>(req, cancellationToken);
+        return res;
+    }
+
+    public async Task<ResponseListModel?> GetPlansAsync(string projectId, CancellationToken cancellationToken)
+    {
+        string req = CombineUrl("rest/v1/projects/", projectId, "/plans",
+            ("fields[categories]", "@all"),
+            ("fields[collections]", "@basic"));
+        var res = await GetFromJsonAsync<ResponseListModel>(req, cancellationToken);
         return res;
     }
 }

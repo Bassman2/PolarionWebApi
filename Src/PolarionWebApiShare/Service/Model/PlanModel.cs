@@ -1,6 +1,5 @@
 ﻿namespace PolarionWebApi.Service.Model;
 
-internal class ProjectModel : DataModel
+internal class PlanModel: DataModel
 {
-    
 }

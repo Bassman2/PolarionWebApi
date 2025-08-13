@@ -4,11 +4,23 @@ public class Project
 {
     internal Project(ProjectModel model)
     {
-        Links = model.Links.CastModel<Links>()!;
-        Data = model.Data.CastModel<Data>()!;
+        Id = model.Id;
+        Name = model.Attributes.Name;
+        Start = model.Attributes.Start;
+        TrackerPrefix = model.Attributes.TrackerPrefix;
+        Icon = model.Attributes.Icon;
+        Color = model.Attributes.Color;
     }
 
-    public Links Links { get; } = null!;
+    public string Id { get; } = null!;
 
-    public Data Data { get; } = null!;
+    public string? Name { get; }
+
+    public string? Start { get; }
+
+    public string? TrackerPrefix { get; }
+
+    public string? Icon { get; }
+
+    public string? Color { get; }
 }
