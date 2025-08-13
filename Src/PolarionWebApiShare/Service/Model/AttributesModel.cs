@@ -5,6 +5,8 @@ internal class AttributesModel
     [JsonPropertyName("id")]
     public string Id { get; set; } = null!;
 
+    
+    //  Project    
     [JsonPropertyName("name")]
     public string Name { get; set; } = null!;
 
@@ -22,4 +24,9 @@ internal class AttributesModel
 
     [JsonPropertyName("color")]
     public string? Color { get; set; } = null!;
+
+    // Workitem
+
+    [JsonPropertyName("Type")]
+    public string? Type { get; set; } = null!;
 }

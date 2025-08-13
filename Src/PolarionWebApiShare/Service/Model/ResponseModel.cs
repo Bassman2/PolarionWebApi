@@ -25,6 +25,7 @@ internal class ResponseListModel
 [JsonDerivedType(typeof(ProjectModel), typeDiscriminator: "projects")]
 [JsonDerivedType(typeof(TestrunModel), typeDiscriminator: "testruns")]
 [JsonDerivedType(typeof(PlanModel), typeDiscriminator: "plans")]
+[JsonDerivedType(typeof(WorkitemModel), typeDiscriminator: "workitems")]
 [DebuggerDisplay("{Id}")]
 internal class DataModel
 {

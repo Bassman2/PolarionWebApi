@@ -48,4 +48,23 @@ public sealed class Polarion : IDisposable
         var res = await service.GetCollectionsAsync(projectId, cancellationToken);
         return res.CastModel<Project>();
     }
+
+    public async Task<IEnumerable<Workitem>?> GetWorkitemsAsync(string projectId, CancellationToken cancellationToken)
+    {
+        WebServiceException.ThrowIfNullOrNotConnected(service);
+        ArgumentNullException.ThrowIfNullOrEmpty(projectId, nameof(projectId));
+
+        var res = await service.GetWorkitemsAsync(projectId, cancellationToken);
+        return res?.Data.CastModel<Workitem>();
+    }
+
+    public async Task<Workitem?> GetWorkitemAsync(string projectId, string workitemId, CancellationToken cancellationToken)
+    {
+        WebServiceException.ThrowIfNullOrNotConnected(service);
+        ArgumentNullException.ThrowIfNullOrEmpty(projectId, nameof(projectId));
+        ArgumentNullException.ThrowIfNullOrEmpty(workitemId, nameof(workitemId));
+
+        var res = await service.GetWorkitemAsync(projectId, workitemId, cancellationToken);
+        return res?.Data.CastModel<Workitem>();
+    }
 }

@@ -66,4 +66,22 @@ internal sealed class PolarionService(Uri host, IAuthenticator? authenticator, s
         var res = await GetFromJsonAsync<ResponseListModel>(req, cancellationToken);
         return res;
     }
+
+    public async Task<ResponseListModel?> GetWorkitemsAsync(string projectId, CancellationToken cancellationToken)
+    {
+        string req = CombineUrl("rest/v1/projects/", projectId, "/workitems",
+            ("fields[categories]", "@all"),
+            ("fields[collections]", "@basic"));
+        var res = await GetFromJsonAsync<ResponseListModel>(req, cancellationToken);
+        return res;
+    }
+
+    public async Task<ResponseItemModel?> GetWorkitemAsync(string projectId, string workitemId, CancellationToken cancellationToken)
+    {
+        string req = CombineUrl("rest/v1/projects/", projectId, "/workitems", workitemId,
+            ("fields[categories]", "@all"),
+            ("fields[collections]", "@basic"));
+        var res = await GetFromJsonAsync<ResponseItemModel>(req, cancellationToken);
+        return res;
+    }
 }

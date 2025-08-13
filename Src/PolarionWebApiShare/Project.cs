@@ -4,7 +4,7 @@ public class Project
 {
     internal Project(ProjectModel model)
     {
-        Id = model.Id;
+        Id = model.Attributes.Id;
         Name = model.Attributes.Name;
         Start = model.Attributes.Start;
         TrackerPrefix = model.Attributes.TrackerPrefix;

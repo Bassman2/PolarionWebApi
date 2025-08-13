@@ -22,7 +22,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ResponseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\SourceGenerationContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\TestrunModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\WorkitemModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\PolarionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Workitem.cs" />
   </ItemGroup>
 </Project>
