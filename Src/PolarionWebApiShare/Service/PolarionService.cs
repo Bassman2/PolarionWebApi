@@ -1,6 +1,4 @@
-﻿using PolarionWebApi.Service.Model;
-
-namespace PolarionWebApi.Service;
+﻿namespace PolarionWebApi.Service;
 
 internal sealed class PolarionService(Uri host, IAuthenticator? authenticator, string appName) : JsonService(host, authenticator, appName, SourceGenerationContext.Default)
 {

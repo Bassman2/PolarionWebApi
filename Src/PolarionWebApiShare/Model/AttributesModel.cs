@@ -1,4 +1,4 @@
-﻿namespace PolarionWebApi.Service.Model;
+﻿namespace PolarionWebApi.Model;
 
 internal class AttributesModel
 {

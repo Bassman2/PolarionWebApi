@@ -1,4 +1,4 @@
-﻿namespace PolarionWebApi.Service.Model;
+﻿namespace PolarionWebApi.Model;
 
 [JsonSourceGenerationOptions(JsonSerializerDefaults.Web, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull)]
 [JsonSerializable(typeof(ResponseItemModel))]

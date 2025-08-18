@@ -1,9 +1,4 @@
-﻿using PolarionWebApi.Service.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PolarionWebApi;
+﻿namespace PolarionWebApi;
 
 public class Attributes
 {

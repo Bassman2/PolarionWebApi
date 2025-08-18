@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PolarionWebApi.Service.Model;
+namespace PolarionWebApi.Model;
 
 internal class TestrunModel : DataModel
 {

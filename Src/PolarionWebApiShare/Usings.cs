@@ -9,6 +9,5 @@ global using WebServiceClient;
 global using WebServiceClient.Authenticator;
 global using WebServiceClient.Store;
 
-global using PolarionWebApi.Service;
-global using PolarionWebApi.Service.Model;
+global using PolarionWebApi.Model;
 
