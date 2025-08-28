@@ -1,6 +1,8 @@
-﻿namespace PolarionWebApi;
+﻿using System.Text.RegularExpressions;
 
-public sealed class Polarion : JsonService
+namespace PolarionWebApi;
+
+public sealed partial class Polarion : JsonService
 {
     public Polarion(string storeKey, string appName) : base(storeKey, appName, SourceGenerationContext.Default)
     { }
@@ -17,6 +19,26 @@ public sealed class Polarion : JsonService
 
         //client.DefaultRequestHeaders.MaxForwards = 5;
     }
+
+    public override async Task<string?> GetVersionStringAsync(CancellationToken cancellationToken = default)
+    {
+        WebServiceException.ThrowIfNotConnected(client);
+
+        //https://polarion.elektrobit.com/polarion/sdk/doc/rest/changes.txt
+
+        var text = await GetStringAsync("sdk/doc/rest/changes.txt", cancellationToken);
+
+        if (string.IsNullOrEmpty(text))
+            return "0.0.0";
+
+        var match = VersionStringRegex().Match(text);
+        return match.Success ? match.Groups[1].Value : "0.0.0";
+        
+    }
+
+    [GeneratedRegex(@"Version\s+([0-9]+(?:\.[0-9]+)*)")]
+    private static partial Regex VersionStringRegex();
+
 
     public async Task<IEnumerable<Project>?> GetProjectsAsync(CancellationToken cancellationToken = default)
     {
@@ -74,4 +96,6 @@ public sealed class Polarion : JsonService
         var res = await GetFromJsonAsync<ResponseItemModel>(req, cancellationToken);
         return res?.Data.CastModel<Workitem>();
     }
+
+   
 }
