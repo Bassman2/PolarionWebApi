@@ -1,28 +1,18 @@
 ﻿namespace PolarionWebApi;
 
-public sealed class Polarion : IDisposable
+public sealed class Polarion : JsonBaseClient
 {
-    private PolarionService? service;
-
-    public Polarion(string storeKey, string appName)
-       : this(new Uri(KeyStore.Key(storeKey)?.Host!), KeyStore.Key(storeKey)!.Token!, appName)
-    { }
+    private readonly PolarionService? service;
 
     public Polarion(Uri host, string token, string appName)
     {
-        service = new PolarionService(host, new BearerAuthenticator(token), appName);
+        service = DefineService(new PolarionService(host, new BearerAuthenticator(token), appName));
     }
 
-    public void Dispose()
-    {
-        if (this.service != null)
-        {
-            this.service.Dispose();
-            this.service = null;
-        }
-        GC.SuppressFinalize(this);
-    }
-
+    public Polarion(string storeKey, string appName)
+        : this(new Uri(KeyStore.Key(storeKey)?.Host!), KeyStore.Key(storeKey)!.Token!, appName)
+    { }
+    
     public async Task<IEnumerable<Project>?> GetProjectsAsync(CancellationToken cancellationToken = default)
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
@@ -34,7 +24,7 @@ public sealed class Polarion : IDisposable
     public async Task<Project?> GetProjectAsync(string projectId, CancellationToken cancellationToken = default)
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
-        ArgumentNullException.ThrowIfNullOrEmpty(projectId, nameof(projectId)); 
+        ArgumentNullException.ThrowIfNullOrEmpty(projectId, nameof(projectId));
 
         var res = await service.GetProjectAsync(projectId, cancellationToken);
         return res?.Data.CastModel<Project>();
