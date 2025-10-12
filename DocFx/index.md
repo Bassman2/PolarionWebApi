@@ -2,14 +2,14 @@
 _layout: landing
 ---
 
-## JenkinsWebApi 
+## PolarionWebApi 
 
-JenkinsWebApi is a .NET API for the Jenkins web service.	
+PolarionWebApi is a .NET API for the Polarion web service.	
 		
 ### Getting Started
 
 
-To get started, add the JenkinsWebApi package to your project.
+To get started, add the PolarionWebApi package to your project.
 
 
 
