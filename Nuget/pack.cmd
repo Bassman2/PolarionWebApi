@@ -1,0 +1,1 @@
+nuget pack PolarionWebApi.nuspec -properties Configuration=Release
