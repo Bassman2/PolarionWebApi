@@ -15,7 +15,7 @@ public sealed partial class Polarion : JsonService
     protected override void InitializeClient(HttpClient client)
     {
         base.InitializeClient(client);
-        client.DefaultRequestHeaders.Add("X-Atlassian-Token", "no-check");
+        //client.DefaultRequestHeaders.Add("X-Atlassian-Token", "no-check");
 
         //client.DefaultRequestHeaders.MaxForwards = 5;
     }
@@ -39,7 +39,7 @@ public sealed partial class Polarion : JsonService
     [GeneratedRegex(@"Version\s+([0-9]+(?:\.[0-9]+)*)")]
     private static partial Regex VersionStringRegex();
 
-
+    /*
     public async Task<IEnumerable<Project>?> GetProjectsAsync(CancellationToken cancellationToken = default)
     {
         WebServiceException.ThrowIfNotConnected(client);
@@ -97,5 +97,5 @@ public sealed partial class Polarion : JsonService
         return res?.Data.CastModel<Workitem>();
     }
 
-   
+    */
 }
