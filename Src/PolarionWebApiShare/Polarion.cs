@@ -20,6 +20,21 @@ public sealed partial class Polarion : JsonService
         //client.DefaultRequestHeaders.MaxForwards = 5;
     }
 
+
+//    https://polarion.elektrobit.com/polarion/		sdk/doc/rest/changes.txt
+//=>  https://polarion.elektrobit.com/polarion/sdk/doc/rest/changes.txt			OK
+
+//https://polarion.elektrobit.com/polarion/		/sdk/doc/rest/changes.txt
+//=>  https://polarion.elektrobit.com/sdk/doc/rest/changes.txt					Wrong
+
+//https://polarion.elektrobit.com/polarion		sdk/doc/rest/changes.txt
+//=>  https://polarion.elektrobit.com/sdk/doc/rest/changes.txt					Wrong
+
+//https://polarion.elektrobit.com/polarion		/sdk/doc/rest/changes.txt
+//=>  'https://polarion.elektrobit.com/sdk/doc/rest/changes.txt					Wrong
+
+
+
     public override async Task<string?> GetVersionStringAsync(CancellationToken cancellationToken = default)
     {
         WebServiceException.ThrowIfNotConnected(client);
